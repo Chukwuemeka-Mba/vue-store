@@ -1,0 +1,17 @@
+Todo List
+
+1. Install and setup django
+2. Install and setup vue
+3. Include fontawesome
+4. Setup the base template
+5. Create django app and models for products
+6. Create serializer and views for the products
+7. Create simple front page
+8. View a product
+    - Create a viewset in Django 
+    - Create vue page for showing product
+    - Add Link to detail page
+9. Settle opp Vuex / State
+10. Make it possible to add to Cart 
+    - Add functionality to Vuex
+    
