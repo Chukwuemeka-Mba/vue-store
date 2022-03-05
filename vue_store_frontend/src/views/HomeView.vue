@@ -10,7 +10,13 @@
         <h2>{{ product.name }}</h2>
         <p>{{ product.price }}</p>
       </div>
+      <div>
+        <router-link v-bind:to="product.get_absolute_url"
+          ><button>View Item</button></router-link
+        >
+      </div>
     </div>
+    <router-view />
   </div>
 </template>
 
