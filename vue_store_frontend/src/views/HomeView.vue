@@ -1,14 +1,14 @@
 <template>
   <div class="home">
-    <div
-      class="products-container"
-      v-for="product in latestProducts"
-      :key="product.id"
-    >
-      <div class="product-item">
-        <img :src="product.get_thumbnail" alt="" />
+    <div class="product-container">
+      <div
+        class="product-item"
+        v-for="product in latestProducts"
+        :key="product.id"
+      >
+        <img class="prod-img" :src="product.get_image" alt="" />
         <h2>{{ product.name }}</h2>
-        <p>{{ prooduct.price }}</p>
+        <p>{{ product.price }}</p>
       </div>
     </div>
   </div>
@@ -47,14 +47,23 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 20px;
+  box-shadow: 1px 1px 3px gainsboro;
+  padding: 20px;
 }
 
-.products-container {
-  display: flex;
+.product-container {
+  display: grid;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 10px;
-  box-shadow: 1px 1px 3px gainsboro;
+  margin: 20px;
+  height: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.prod-img {
+  width: 200px;
+  height: 250px;
 }
 </style>
