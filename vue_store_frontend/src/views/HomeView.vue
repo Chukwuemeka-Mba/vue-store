@@ -6,14 +6,14 @@
         v-for="product in latestProducts"
         :key="product.id"
       >
-        <img class="prod-img" :src="product.get_image" alt="" />
+        <img class="prod-img" :src="product.image_url" alt="" />
         <h2>{{ product.name }}</h2>
         <p>{{ product.price }}</p>
-      </div>
-      <div>
-        <router-link v-bind:to="product.get_absolute_url"
-          ><button>View Item</button></router-link
-        >
+        <div>
+          <a :href="'/' + product.category.slug + '/' + product.slug">
+            <button>View Item</button></a
+          >
+        </div>
       </div>
     </div>
     <router-view />
@@ -36,8 +36,12 @@ export default {
   methods: {
     getLatestProducts() {
       axios
-        .get("/api/v1/latest-products/")
-        .then((response) => (this.latestProducts = response.data))
+        .get("/api/v1/product/latest-products/")
+        .then(
+          (response) => (
+            (this.latestProducts = response.data), console.log(response.data)
+          )
+        )
         .catch((error) => console.error(error));
     },
   },
@@ -60,12 +64,11 @@ export default {
 
 .product-container {
   display: grid;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   margin: 20px;
   height: auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 
 .prod-img {

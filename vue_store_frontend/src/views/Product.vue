@@ -1,6 +1,6 @@
 <template lang="">
   <div>
-    <div class="container" v-for="product in products">
+    <div class="container">
       <div class="">
         <figure><img v-bind:src="product.get_image" /></figure>
         <h1 class="title">{{ product.name }}</h1>
@@ -17,7 +17,7 @@
           </div>
 
           <div class="control">
-            <a href=""><button type="submit"></button></a>
+            <a href=""><button type="submit">Add to Cart</button></a>
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@
 <script>
 import axios from "axios";
 export default {
-  name: "Products",
+  name: "Product",
   data() {
     return {
       product: {},
@@ -42,7 +42,14 @@ export default {
       const category_img = this.$route.params.category_slug;
       const product_slug = this.$route.params.product_slug;
 
-      axios.get("");
+      axios
+        .get(`api/v1/product/${category_slug}/${product_slug}`)
+        .then((response) => {
+          this.product = response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
 };

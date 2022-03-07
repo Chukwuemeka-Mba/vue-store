@@ -2,7 +2,7 @@
   <div>
     <nav>
       <div>
-        <router-link to="/"><h1 class="">Store</h1></router-link>
+        <router-link to="/home"><h1 class="">Store</h1></router-link>
       </div>
 
       <div class="nav-links">
@@ -18,9 +18,6 @@
           </router-link>
         </div>
       </div>
-      <!-- <div v-show="isMobile" @click="isMobile = !isMobile">
-        <i class="fas fa-bars"></i>
-      </div> -->
     </nav>
     <router-view />
 
@@ -86,10 +83,11 @@ nav h1 {
 
 .footer {
   font-family: "Fira Sans Extra Condensed", sans-serif;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: 2.5rem; /* Footer height */
+  background-color: black;
 }
 
 .footer p {
@@ -97,5 +95,6 @@ nav h1 {
   flex-direction: row;
   justify-content: center;
   margin: 10px 5px;
+  color: white;
 }
 </style>
